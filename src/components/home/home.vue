@@ -1,15 +1,24 @@
 <!--主页-->
 <template>
   <div>
+    <!--banner部分-->
     <vp-banner></vp-banner>
+    <!--产品展示图-->
+    <div class="home-product">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
     <div class="cont">
-      <a href="#/product/product">主体内容</a>
+      <a href="#/home/product">主体内容</a>
     </div>
     <div class="cont2">
-      <a href="#/product/product">主体内容2</a>
+      <a href="#/home/product">主体内容2</a>
     </div>
     <div class="cont3">
-      <a href="#/product/product">主体内容3</a>
+      <a href="#/home/product">主体内容3</a>
     </div>
   </div>
 </template>
@@ -43,8 +52,8 @@
   }
 </script>
 
-<style lang="stylus" type="text/stylus" rel='stylesheet/stylus'>
-  @import "../../commom/css/common.styl"
+<style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
+
   .cont
     min-height: 100px;
     border-bottom: 1px solid #ccc;

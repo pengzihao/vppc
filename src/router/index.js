@@ -7,7 +7,7 @@ import Product from '@/components/product/product'
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  // mode: 'history', //(加载不到资源页面返回404,需要后台配置)
   routes: [
     { //根路径(重定向Home)
       path: '/',
@@ -18,7 +18,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/product/product',
+      path: '/home/product',
       component: Product
     }
   ]

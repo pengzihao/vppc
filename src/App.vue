@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style lang="stylus" type="text/stylus" rel='stylesheet/stylus'>
-
+  @import "./commom/css/common.styl"
 </style>

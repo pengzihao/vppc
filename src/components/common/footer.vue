@@ -65,11 +65,11 @@
 </script>
 
 <style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
-  @import "../../commom/css/common.styl"
  .footer
    background-color #fff
    padding 50px 0 13px 0
    width 100%
+   min-width 1200px
    .footer-us
      float left
      width 420px

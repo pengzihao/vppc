@@ -10,8 +10,28 @@
       </div>
       <!-- 分页器 -->
       <div class="swiper-pagination"></div>
-      <!--提示登录-->
 
+      <!--登录提示-->
+      <div class="banner-cont vp-layout">
+        <div class="banner-login">
+          <!--未登录提示-->
+          <ul class="noLogin-ul">
+            <li class="rateNum">
+              <span>6.8</span>
+              <span>%</span>
+              <span>~10.0</span>
+              <span>%</span>
+            </li>
+            <li class="rateText">约定年利率</li>
+            <li>
+              <a class="regBtn" href="javascript:void(0)">注册领取体验金</a>
+            </li>
+            <li>
+              <a class="loginBtn" href="javascript:void(0)">———— 立即登录 ————</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <!--小微头条-->
     <div class="banner-topLine vp-layout">
@@ -27,9 +47,10 @@
         </div>
       </div>
       <div class="more-topLine">
-        <a href="">更多 >></a>
+        <a href="javascript:void(0)">更多 >></a>
       </div>
     </div>
+
     <!--优势-->
     <div class="banner-advantage">
       <div class="vp-layout">
@@ -105,25 +126,66 @@
   }
 </script>
 
-<style lang="stylus" type="text/stylus" rel='stylesheet/stylus'>
-  @import '../../commom/js/swiper/swiper.3.1.2.min.css';
+<style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
+  @import "../../commom/css/common.styl"
   .banner
     width 100%
     background-color #fff
+    min-width 1200px
+    position relative
     .swiper-banner
-      width: 100%;
-      height: 360px;
-      .swiper-pagination
-        margin-left -20px
+      width 100%
+      height 360px
+      position relative
+      .swiper-wrapper
+        width 1920px
         position absolute
-        bottom 8px
-        .swiper-pagination-clickable
-        .swiper-pagination-bullet
-          width 10px
-          height 10px
-          margin 0 10px
-        .swiper-pagination-bullet-active
-          background #000
+        top 0
+        left 50%
+        margin-left -960px
+      .banner-cont
+        position relative
+        .banner-login
+          position absolute
+          width 240px
+          height 320px
+          right 0
+          top 20px
+          padding 0 30px
+          text-align center
+          background rgba(250,250,250,0.8)
+          z-index 99
+          border-radius 5px
+          .noLogin-ul
+            margin-top 50px
+            li
+              margin-top 10px
+              color $linkColor
+              overflow hidden
+              .regBtn
+                width 240px
+                height 38px
+                display block
+                color #fff
+                background-color $redBg
+                font-size 18px
+                line-height 38px
+                border-radius 20px
+                margin-top 5px
+              .loginBtn
+                margin-top 5px
+                display block
+                color $blueBg
+            .rateNum
+              span:nth-child(1)
+                font-size 38px
+              span:nth-child(2)
+                font-size 20px
+              span:nth-child(3)
+                font-size 38px
+              span:nth-child(4)
+                font-size 20px
+
     .banner-topLine
       height 50px
     .topLine-img
@@ -176,4 +238,22 @@
         background url("../../assets/banner/advantage3.png") no-repeat
       .advantage-item:nth-child(4)
         background url("../../assets/banner/advantage4.png") no-repeat
+</style>
+
+<style lang="stylus" type="text/stylus" rel='stylesheet/stylus'>
+  @import '../../commom/js/swiper/swiper.3.1.2.min.css';
+  /*覆盖swiper的banner样式*/
+  .banner
+    .swiper-banner
+      .swiper-pagination
+        margin-left -20px
+        position absolute
+        bottom 8px
+        .swiper-pagination-clickable
+        .swiper-pagination-bullet
+          width 10px
+          height 10px
+          margin 0 10px
+        .swiper-pagination-bullet-active
+          background #000
 </style>

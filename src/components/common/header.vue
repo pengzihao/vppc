@@ -156,6 +156,7 @@
     background-color #fdfdfd
     height 140px
     width 100%
+    min-width 1200px
   .wrap-top-bg
     background-color #f5f5f5
     height 40px
