@@ -5,7 +5,7 @@
       <div class="footer-us">
         <div class="logo-wb clearfix">
           <div class="logo">
-            <img src="../../assets/common/logo.png">
+            <img src="@/assets/common/logo.png">
           </div>
           <a class="wb-ico" href="javascript:void(0)" title="微品金融新浪微博"></a>
         </div>
@@ -16,12 +16,12 @@
       </div>
       <div class="footer-code">
         <div class="qr-code">
-          <img src="../../assets/common/weixin.png">
+          <img src="@/assets/common/weixin.png">
           <p>了解更多资讯，关注公众号</p>
         </div>
         <div class="qr-code">
-          <img src="../../assets/common/anzhuo.jpg">
-          <p>掌上投资，轻松赚钱</p>
+          <img src="@/assets/common/anzhuo.jpg">
+          <p>掌上出借，轻松赚钱</p>
         </div>
       </div>
       <div class="footer-nav">
@@ -49,9 +49,9 @@
     </div>
     <div class="security-copyright vp-layout">
       <div class="security">
-        <a class="security-img1" href="javascript:void(0)"></a>
-        <a class="security-img2" href="javascript:void(0)"></a>
-        <a class="security-img3" href="javascript:void(0)"></a>
+        <a class="security-img1" href="https://szcert.ebs.org.cn/82cff7e3-e252-4b2d-a364-7ac0e0bc1d72" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" target="_blank"></a>
+        <a class="security-img2" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" title="经营性网站备案信息" target="_blank"></a>
+        <a class="security-img3" href="http://www.gdga.gov.cn" title="网络110报警服务" target="_blank"></a>
       </div>
       <p class="copyright">版权所有<a href="javascript:void(0)">©粤ICP备15024107号-1|</a>深圳五维微品金融信息服务有限公司</p>
     </div>
@@ -60,14 +60,14 @@
 
 <script>
     export default {
-        name: ''
+      name: '',
     }
 </script>
-
 <style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
+  @import "~@/common/css/common.styl"
  .footer
    background-color #fff
-   padding 50px 0 13px 0
+   padding 50px 0 5px 0
    width 100%
    min-width 1200px
    .footer-us
@@ -80,7 +80,7 @@
        width 34px
        height 34px
        margin-left 50px
-       background url("../../assets/elves/index-icon.png") -120px -254px no-repeat
+       background url("~@/assets/elves/index-icon.png") -120px -254px no-repeat
      .service-telephone
        line-height 50px
        margin-top 30px
@@ -111,17 +111,18 @@
          font-size 14px
          height 30px
          line-height 30px
+         font-weight normal
          i
            height 30px
            width 30px
            display inline-block
            vertical-align middle
          .about-ico
-           background url("../../assets/elves/index-icon.png") -1px -254px no-repeat
+           background url("~@/assets/elves/index-icon.png") -1px -254px no-repeat
          .industry-ico
-           background url("../../assets/elves/index-icon.png") -33px -254px no-repeat
+           background url("~@/assets/elves/index-icon.png") -33px -254px no-repeat
          .security-ico
-           background url("../../assets/elves/index-icon.png") -70px -254px no-repeat
+           background url("~@/assets/elves/index-icon.png") -70px -254px no-repeat
        a
          display block
          padding-left 30px
@@ -133,20 +134,26 @@
      width 100%
      .security
        width 340px
-       height 30px
+       height 40px
        margin 0 auto
        a
-         width 92px
-         height 29px
          display inline-block
-         background url("../../assets/common/footzs.jpg") no-repeat
        .security-img1
-         background-position 0 0
+         display inline-block
+         width 92px
+         height 38px
+         background url("~@/assets/common/tradeMark_icon.png") no-repeat
        .security-img2
+         width 91px
+         height 37px
+         background url("~@/assets/common/keepOnrecord_icon.jpg") no-repeat
+         background-size 100%
          margin 0 15px
-         background-position -92px 0
        .security-img3
-         background-position -184px 0
+         width 91px
+         height 37px
+         background url("~@/assets/common/netPolice_icon.jpg") no-repeat
+         background-size 100%
      .copyright
        height 50px
        line-height 50px

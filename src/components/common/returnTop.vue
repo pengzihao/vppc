@@ -2,24 +2,25 @@
 <template>
   <div class="serviceTips">
     <div>
-      <a class="app-down" href="javascript:void(0)" @mouseover="showCode" @mouseout="hideCode"></a>
+      <a class="app-down" href="#/app/appDownload" @mouseover="showCode" @mouseout="hideCode"></a>
       <div class="app-img">
-        <img src="../../assets/common/app-download.png">
+        <img src="@/assets/common/app-download.png">
       </div>
     </div>
     <div>
-      <a class="counter" href="javascript:void(0)"></a>
+      <!--<a class="counter" href="#/visitor/calculator"></a>-->
+      <a class="counter" onclick="javascript:window.open('#/visitor/calculator','','width=1200,height=768,left=0');" target="_blank"></a>
     </div>
     <div>
       <a class="wx-service" href="javascript:void(0)" @mouseover="showCode" @mouseout="hideCode"></a>
       <div class="wx-img">
-        <img src="../../assets/common/wechat-code.png">
+        <img src="@/assets/common/wechat-code.png">
       </div>
     </div>
     <div>
       <a class="qq-service" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2633220589&amp;site=qq&amp;menu=yes" @mouseover="showQQ" @mouseout="hideQQ" target="_blank">
         <div class="qq-chat-bg">
-          <img class="qq-ico" src="../../assets/common/return-top-hover-icon3.png" title="点击咨询">
+          <img class="qq-ico" src="@/assets/common/return-top-hover-icon3.png" title="点击咨询">
           <span class="qq-chat">QQ交谈</span>
         </div>
       </a>
@@ -43,11 +44,11 @@
       },
       methods:{
         showCode:function (e) {
-          let ele = e.currentTarget.nextElementSibling;
+          var ele = e.currentTarget.nextElementSibling;
           $(ele).fadeIn(300);
         },
         hideCode:function (e) {
-          let ele =e.currentTarget.nextElementSibling;
+          var ele =e.currentTarget.nextElementSibling;
           $(ele).fadeOut(0);
         },
         showQQ:function (e) {
@@ -57,8 +58,8 @@
           e.currentTarget.children[0].style.display='none';
         },
         getScrollTop:function () {
-          let returnBtn = document.getElementsByClassName('returnTopBtn')[0];
-          let scrollTopNum = document.documentElement.scrollTop || document.body.scrollTop;
+          var returnBtn = document.getElementsByClassName('returnTopBtn')[0];
+          var scrollTopNum = document.documentElement.scrollTop || document.body.scrollTop;
           if(scrollTopNum > '100'){
             returnBtn.style.display = 'block';
           }else {
@@ -67,9 +68,9 @@
         },
         returnTop:function (e) {
           e.preventDefault();
-          let topTimer = setInterval(function(){
-            let osTop = document.documentElement.scrollTop || document.body.scrollTop;
-            let speed = Math.floor(-osTop / 6);
+          var topTimer = setInterval(function(){
+            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var speed = Math.floor(-osTop / 6);
             document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
             if(osTop == 0){
               clearInterval(topTimer);
@@ -81,7 +82,7 @@
 </script>
 
 <style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
-  @import "../../commom/css/common.styl"
+  @import "~@/common/css/common.styl"
   .serviceTips
     position fixed
     right 50px
@@ -92,7 +93,7 @@
       height 58px
       display block
       margin-top 5px
-      background url("../../assets/elves/pngicon.png") no-repeat
+      background url("~@/assets/elves/pngicon.png") no-repeat
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
@@ -137,7 +138,7 @@
       left -172px
       padding 12px 0 0 20px
       display none
-      background url("../../assets/common/return-top-hover-icon4.png") no-repeat
+      background url("~@/assets/common/return-top-hover-icon4.png") no-repeat
       .qq-ico
         vertical-align middle
         margin 0 0 0 16px

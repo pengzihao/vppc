@@ -16,5 +16,12 @@ new Vue({
   el: '#app',
   router,
   components: { App },
+  mounted () {
+    //路由跳转页面后回到顶部
+    this.$router.afterEach((to, from, next) => {
+      window.scrollTo(0, 0);
+    });
+  },
   template: '<App/>'
+
 })
