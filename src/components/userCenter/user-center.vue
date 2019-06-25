@@ -28,41 +28,38 @@
           <li class="first-li" :class="{on: navType >=0 && navType <= 10}" @mouseover="showChildNavList" @mouseout="hideChildNavList">
             <a href="javascript:void(0)" class="first-a">账户管理</a>
             <ul class="second-ul">
-              <li @click="setNavType($event,1)"><router-link to="/userCenter/myAccount">我的账户</router-link></li>
-              <li @click="setNavType($event,2)"><router-link to="/userCenter/safetyCenter">安全中心</router-link></li>
-              <li @click="setNavType($event,3)"><router-link to="/userCenter/iwantRecharge">我要充值</router-link></li>
-              <li><router-link to="">我要提现</router-link></li>
-              <li><router-link to="">资金流水</router-link></li>
+              <li @click="setNavType($event,1)"><router-link to="/userCenter/myAccount?accountType=1">我的账户</router-link></li>
+              <li @click="setNavType($event,2)"><router-link to="/userCenter/safetyCenter?accountType=2">安全中心</router-link></li>
+              <li @click="setNavType($event,3)"><router-link to="/userCenter/iwantRecharge?accountType=3">我要充值</router-link></li>
+              <li @click="setNavType($event,4)"><router-link to="/userCenter/iwantWithdraw?accountType=4">我要提现</router-link></li>
+              <li @click="setNavType($event,5)"><router-link to="/userCenter/fundRunning?accountType=5">资金流水</router-link></li>
             </ul>
           </li>
           <li class="first-li" :class="{on: navType >= 11 && navType <= 20}" @mouseover="showChildNavList" @mouseout="hideChildNavList">
             <a href="javascript:void(0)" class="first-a">出借管理</a>
             <ul class="second-ul">
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
+              <li><router-link to="">专项出借</router-link></li>
+              <li @click="setNavType($event,11)"><router-link to="/userCenter/returnMoney?accountType=11">回款查询</router-link></li>
+              <li @click="setNavType($event,11)"><router-link to="/userCenter/iwantTransfer?accountType=12">我要转让</router-link></li>
+              <li><router-link to="">购买的债权</router-link></li>
+              <li @click="setNavType($event,13)"><router-link to="/userCenter/autoBid?accountType=13">自动投标</router-link></li>
             </ul>
           </li>
           <li class="first-li" :class="{on: navType >= 21 && navType <= 30}" @mouseover="showChildNavList" @mouseout="hideChildNavList">
             <a href="javascript:void(0)" class="first-a">活动管理</a>
             <ul class="second-ul">
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
+              <li @click="setNavType($event,21)"><router-link to="/userCenter/noviceExp?accountType=21">新手体验金</router-link></li>
+              <li @click="setNavType($event,22)"><router-link to="/userCenter/myCoupon?accountType=22">我的优惠券</router-link></li>
+              <li @click="setNavType($event,23)"><router-link to="/userCenter/inviteCourtesy?accountType=23">邀请有礼</router-link></li>
+              <li @click="setNavType($event,24)"><router-link to="/userCenter/riskReview?accountType=24">风险评测</router-link></li>
             </ul>
           </li>
           <li class="first-li" :class="{on: navType >= 31 && navType <= 40}" @mouseover="showChildNavList" @mouseout="hideChildNavList">
             <a href="javascript:void(0)" class="first-a">借还款管理</a>
             <ul class="second-ul">
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
-              <li>123</li>
+              <li><router-link to="">我要借款</router-link></li>
+              <li><router-link to="">借款记录</router-link></li>
+              <li><router-link to="">还款管理</router-link></li>
             </ul>
           </li>
         </ul>
@@ -79,7 +76,7 @@
     name: '',
     data(){
       return {
-         navType: 0
+         navType: this.$route.query.accountType || 0
       }
     },
     mounted: function () {
@@ -102,6 +99,7 @@
 
 <style lang="stylus" type="text/stylus" rel='stylesheet/stylus' scoped>
   @import "~@/common/css/common.styl"
+
   .user-center
     width 100%
     background-color #f5f5f5
@@ -242,5 +240,6 @@
               display inline-block
             a:hover
               color $redFontColor
+              background-color #f5f5f5
 
 </style>

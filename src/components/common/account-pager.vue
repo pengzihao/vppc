@@ -2,14 +2,14 @@
 <template>
   <div class="contBox">
     <ul class="pagination">
-      <li class="mg-r5" :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(1)"> 首页 </a></li>
-      <li class="mg-r5" :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(current - 1)"> 上一页 </a></li>
-      <li v-for="p in grouplist" :class="{'active': current == p.val}"><a href="javascript:;"
-                                                                          @click="setCurrent(p.val)"> {{ p.text }} </a>
-      </li>
-      <li class="mg-l5" :class="{'disabled': current == page}"><a href="javascript:;" @click="setCurrent(current + 1)"> 下一页 </a></li>
-      <li class="mg-l5" :class="{'disabled': current == page}"><a href="javascript:;" @click="setCurrent(page)"> 末页 </a></li>
-      <li class="mg-l5"><a href="javascript:;"> 共 <span>{{total}}</span> 页 </a></li>
+      <li class="mg-r30"><a href="javascript:;"> 共 <span>{{total}}</span>条 <span>{{page}}</span> 页 </a></li>
+      <li class="mg-r60"><a href="javascript:;"> 当前第{{current}}页</a></li>
+      <li class="mg-r30" :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(1)"> 首页 </a></li>
+      <li class="mg-r30" :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(current - 1)"> 上一页 </a></li>
+      <li class="mg-r30" :class="{'disabled': current == page}"><a href="javascript:;" @click="setCurrent(current + 1)"> 下一页 </a></li>
+      <li class="mg-r40" :class="{'disabled': current == page}"><a href="javascript:;" @click="setCurrent(page)"> 尾页 </a></li>
+      <li class="mg-r20" :class="{'disabled': current == page}"><input type="text" class="jump-input" v-model="jumpPage"></li>
+      <li :class="{'disabled': jumpPage > page}"><a href="javascript:;" @click="setCurrent(jumpPage)" class="jump-btn"> 跳转 </a></li>
     </ul>
   </div>
 </template>
@@ -21,6 +21,7 @@
         current: this.currentPage, //当前页码
         total: 100,  // 数据总条数
         dataInfo: '',
+        jumpPage: 1, //跳转页码
       }
     },
     props: {
@@ -83,6 +84,7 @@
     },
     methods: {
       setCurrent: function (idx) {
+        console.log(idx)
         if (this.current != idx && idx > 0 && idx < this.page + 1) {
           this.current = idx;
           this.getInfo(idx);
@@ -91,22 +93,22 @@
       },
       getInfo:function(page){
         var _this =this
-        // $.ajax({
-        //   url: this.dataUrl+'?page='+page+'&limit='+this.pageSize,
-        //   type: 'GET',
-        //   dataType: 'json',
-        //   headers: {
-        //     'uid': '8a8080c4667ae2a40166863712ae00ec',
-        //     'access-token': '23887262-5923-4afa-9377-2ddaff88c7c9'
-        //   },
-        //   success:function (res) {
-        //     console.log(res)
-        //     _this.dataInfo = res;
-        //     _this.total = res.responseObject.totalCount
-        //     _this.$emit('pagechange', _this.current,_this.dataInfo);
-        //   }
-        // })
-        _this.$emit('pagechange', 10,{'list':['1','2','3']});
+        $.ajax({
+          url: this.dataUrl+'?page='+page+'&limit='+this.pageSize,
+          type: 'GET',
+          dataType: 'json',
+          headers: {
+            'uid': '8a8080c4667ae2a40166863712ae00ec',
+            'access-token': '6b87ff09-6166-4292-8b39-c2ce04ab7808'
+          },
+          success:function (res) {
+            console.log(res)
+            _this.dataInfo = res;
+            _this.total = res.responseObject.totalCount
+            _this.$emit('pagechange', _this.current,_this.dataInfo);
+          }
+        })
+        // _this.$emit('pagechange', 10,{'list':['1','2','3']});
       },
     }
   }
@@ -118,33 +120,40 @@
     overflow hidden
     display table
     margin 0 auto
-    height 50px
+    height 36px
+    line-height 36px
+    float right
     li
       float left
       a
         display block
         text-align center
         text-decoration none
-        border 1px solid #ddd
-        padding 6px 12px
-        margin-left -1px
-        color #337ab7
-        background-color transparent
-    li:hover
-      background-color #eee
-    .active
-      a
+        color #666
+        font-size 14px
+      a:hover
+        color $redFontColor
+      .jump-input
+        width 80px
+        height 36px
+        border solid 1px #eeeeee
+        text-align center
+      .jump-btn
+        width 60px
+        height 36px
+        background-color $redBg
+        border-radius 2px
         color #fff
-        background-color #337ab7
-        border-color #337ab7
-    li:first-child
-      border-left 1px solid #ddd
-    .mg-r5
-      margin-right 5px
-    .mg-l5
-      margin-left 5px
-    li:last-child
-      a
-        span
-          color #d44950
+      .jump-btn:hover
+        color #fff
+    .mg-r20
+      margin-right 20px
+    .mg-r30
+      margin-right 30px
+    .mg-r40
+      margin-right 40px
+    .mg-r60
+      margin-right 60px
+
+
 </style>

@@ -11,7 +11,7 @@
           </div>
         </li>
       </ul>
-      <product-pagination :pageSize="pageSize" :currentPage="currentPage" :dataUrl="dataUrl" @pagechange="pagechange"></product-pagination>
+      <product-pager :pageSize="pageSize" :currentPage="currentPage" :dataUrl="dataUrl" @pagechange="pagechange"></product-pager>
     </div>
 
     <div class="notice-content">
@@ -50,7 +50,7 @@
 
 <script>
 
-  import ProductPagination from '@/components/common/product-pagination'
+  import ProductPager from '@/components/common/product-pager'
 
   export default {
     data() {
@@ -89,7 +89,7 @@
       }
     },
     components:{
-      'product-pagination': ProductPagination
+      'product-pager': ProductPager
     }
   }
 </script>

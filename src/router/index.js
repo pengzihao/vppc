@@ -47,7 +47,17 @@ import AppDownload from '@/components/app/appDownload'
 import UserCenter from '@/components/userCenter/user-center'
 import SafetyCenter from '@/components/userCenter/safety-center'
 import IwantRecharge from '@/components/userCenter/iwant-recharge'
+import IwantWithdraw from '@/components/userCenter/iwant-withdraw'
 import MyAccount from '@/components/userCenter/my-account'
+import LoanRanking from '@/components/userCenter/loan-ranking'
+import RiskReview from '@/components/userCenter/risk-review'
+import FundRunning from '@/components/userCenter/fund-running'
+import ReturnMoney from '@/components/userCenter/return-money'
+import IwantTransfer from '@/components/userCenter/iwant-transfer'
+import AutoBid from '@/components/userCenter/auto-bid'
+import NoviceExp from '@/components/userCenter/novice-exp'
+import InviteCourtesy from '@/components/userCenter/invite-courtesy'
+import MyCoupon from '@/components/userCenter/my-coupon'
 
 
 Vue.use(Router)
@@ -181,11 +191,50 @@ export default new Router({
           component: IwantRecharge
         },
         {
+          path: 'iwantWithdraw',
+          component: IwantWithdraw
+        },
+        {
           path: 'myAccount',
           component: MyAccount
         },
+        {
+          path: 'riskReview',
+          component: RiskReview
+        },
+        {
+          path: 'fundRunning',
+          component: FundRunning
+        },
+        {
+          path: 'returnMoney',
+          component: ReturnMoney
+        },
+        {
+          path: 'iwantTransfer',
+          component: IwantTransfer
+        },
+        {
+          path: 'autoBid',
+          component: AutoBid
+        },
+        {
+          path: 'noviceExp',
+          component: NoviceExp
+        },
+        {
+          path: 'inviteCourtesy',
+          component: InviteCourtesy
+        },
+        {
+          path: 'myCoupon',
+          component: MyCoupon
+        },
       ]
     },
-
+    {
+      path: '/userCenter/loanRanking',
+      component: LoanRanking
+    },
   ]
 })

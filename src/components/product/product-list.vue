@@ -71,7 +71,8 @@
           <tbody>
           <tr v-for="loan in loanList">
             <td class="pl-name font-14 padding_left_5">
-              <a :href="loan.id | productInfoUrl(mainType,loan.product,loan.productType,type)" :alt="loan.loanTitle">{{loan.loanTitle}}</a>
+              <!--<a :href="loan.id | productInfoUrl(mainType,loan.product,loan.productType,type)" :alt="loan.loanTitle">{{loan.loanTitle}}</a>-->
+              <a href="javascript:void(0)">{{loan.loanTitle}}</a>
               <span v-for="flag in loan.flag" :class="flag" v-if="flag=='zhuan'"></span>
               <!--浮动计息产品标志-->
               <span v-if="loan.graceDays > 0 " class="float"  :data-tips="loan.rate|tipsFilter(loan.term,loan.graceRate,loan.graceDays)"  onmouseover="showTips(this)"  onmouseleave="hideLayerTips()"></span>
@@ -137,7 +138,7 @@
             <!--<li v-if="cur!=all"><a @click="btnClick(all)">末页</a></li>-->
             <!--<li><a>共<i>{{all}}</i>页</a></li>-->
           <!--</ul>-->
-          <product-pagination :pageSize="pageSize" :currentPage="currentPage" :dataUrl="dataUrl" @pagechange="pagechange"></product-pagination>
+          <product-pager :pageSize="pageSize" :currentPage="currentPage" :dataUrl="dataUrl" @pagechange="pagechange"></product-pager>
         </div>
       </div>
     </div>
@@ -146,7 +147,7 @@
 
 <script>
 
-  import ProductPagination from '@/components/common/product-pagination'
+  import ProductPager from '@/components/common/product-pager'
 
   export default {
     name: '',
@@ -158,10 +159,14 @@
         term: 0,            //期限     0 全部  （必传）
         loantype: 0,        //标的类型  0 全部   1 普通标， 2 天标  （必传）
         loanList:[{"loantype":1,"graceDays":0,"isAddRate":"0.30","loanstate":2,"loanTitle":"企业贷201905241","productType":0,"id":1002448,"process":"4.77","product":4,"rate":"9.00","flag":["bao","zhuan"],"term":6,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"企业贷201905231","productType":0,"id":1002456,"process":"100.00","product":4,"rate":"7.20","flag":["bao"],"term":1,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"企业贷201905223","productType":0,"id":1002438,"process":"100.00","product":4,"rate":"8.50","flag":["bao"],"term":3,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"车商贷201905223","productType":2,"id":1002421,"process":"100.00","product":4,"rate":"7.20","flag":["bao"],"term":1,"issueLoan":120000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"车商贷201905222","productType":2,"id":1002420,"process":"100.00","product":4,"rate":"7.20","flag":["bao"],"term":1,"issueLoan":50000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"车商贷201905221","productType":2,"id":1002416,"process":"100.00","product":4,"rate":"7.20","flag":["bao"],"term":1,"issueLoan":140000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"企业贷201905222","productType":0,"id":1002431,"process":"100.00","product":4,"rate":"8.50","flag":["bao"],"term":3,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.30","loanstate":3,"loanTitle":"企业贷201905221","productType":0,"id":1002430,"process":"100.00","product":4,"rate":"9.00","flag":["bao","zhuan"],"term":6,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"企业贷201905203","productType":0,"id":1002417,"process":"100.00","product":4,"rate":"7.20","flag":["bao"],"term":1,"issueLoan":500000,"graceRate":"0.00"},{"loantype":1,"graceDays":0,"isAddRate":"0.00","loanstate":3,"loanTitle":"企业贷201905202","productType":0,"id":1002390,"process":"100.00","product":4,"rate":"7.80","flag":["bao"],"term":2,"issueLoan":500000,"graceRate":"0.00"}],
+        pageSize: 10,
+        currentPage: 1,
+        //dataUrl:'http://new.vpfinance.cn:8888/admin/loanSign/unpublishedLoanSigns'
+        dataUrl:''
       }
     },
     components:{
-      'product-pagination': ProductPagination
+      'product-pager': ProductPager
     },
     mounted(){
       console.log(this.mainType)

@@ -30,22 +30,22 @@
             <!--登录后显示-->
             <li>您好，张三！</li>
             <li class="account" @mouseover="showAccountList" @mouseout="hideAccountList">
-              <div><i class="my-account"></i><a href="#/userCenter/myAccount">我的账户</a><i class="small-ico"></i></div>
+              <div><i class="my-account"></i><a href="#/userCenter/myAccount?accountType=1">我的账户</a><i class="small-ico"></i></div>
               <ul class="account-list">
-                <li><a href="#/userCenter/myAccount">可用余额</a>
+                <li><a href="#/userCenter/myAccount?accountType=1">可用余额</a>
                   <div class="moneyBox">
                     <span>10000元</span>
                     <a href="javascript:void(0)"><img src="@/assets/common/refresh.png"/></a>
                   </div>
                 </li>
-                <li><a href="#/userCenter/myAccount">账户总览</a></li>
+                <li><a href="#/userCenter/myAccount?accountType=1">账户总览</a></li>
                 <li><a href="javascript:void(0)">我要充值</a></li>
                 <li><a href="javascript:void(0)" title="退出" @click="retreatSafely">安全退出</a></li>
               </ul>
             </li>
             <li>
               <i class="invest-ranking"></i>
-              <a href="javascript:void(0)" title="出借排行榜">出借排行榜</a>
+              <a href="#/userCenter/loanRanking" title="出借排行榜">出借排行榜</a>
             </li>
           </template>
           <template v-else>
@@ -165,10 +165,10 @@
 
       /*显示隐藏个人中心列表*/
       showAccountList:function () {
-        $('.account-list').show();
+        event.currentTarget.children[1].style.display='block';
       },
       hideAccountList:function () {
-        $('.account-list').hide();
+        event.currentTarget.children[1].style.display='none';
       },
 
       /*显示菜单下拉*/
@@ -370,9 +370,10 @@
             box-sizing border-box
             border-radius 0 0 6px 6px
             li
-              border-bottom  1px solid #eee
               a
                 font-size 14px
+            li:not(:last-child)
+              border-bottom  1px solid #eee
         .has-second:hover
           border 1px solid #eee
           border-radius 5px 5px 0 0
