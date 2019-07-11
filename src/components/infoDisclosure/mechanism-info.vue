@@ -36,7 +36,7 @@
         <tr><td>咨询、投诉、举报联系电话</td><td>0755-86627551</td></tr>
         <tr><td>电子邮箱</td><td>services@vpfinance.cn</td></tr>
         <tr><td>通讯地址</td><td>深圳市南山区高新南一道赋安科技大厦B座305</td></tr>
-        <tr><td>注册协议模板</td><td><a href="/registration/useragreement" target="_blank">《微品金融用户服务协议》</a></td></tr>
+        <tr><td>注册协议模板</td><td><a href="#/agreement/userAgreement" target="_blank">《微品金融用户服务协议》</a></td></tr>
         <tr><td>平台 APP 应用</td><td>微品金融</td></tr>
         <tr><td>公众号或服务号</td><td>微信服务号“五维微品金融” &nbsp;&nbsp;&nbsp;&nbsp; 微信订阅号“5W微品金融”</td></tr>
         <tr><td>微博</td><td><a href="https://weibo.com/vpfinance/" target="_blank">https://weibo.com/vpfinance/</a></td></tr>

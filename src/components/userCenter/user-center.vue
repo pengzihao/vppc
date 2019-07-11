@@ -39,10 +39,10 @@
             <a href="javascript:void(0)" class="first-a">出借管理</a>
             <ul class="second-ul">
               <li><router-link to="">专项出借</router-link></li>
-              <li @click="setNavType($event,11)"><router-link to="/userCenter/returnMoney?accountType=11">回款查询</router-link></li>
-              <li @click="setNavType($event,11)"><router-link to="/userCenter/iwantTransfer?accountType=12">我要转让</router-link></li>
+              <li @click="setNavType($event,12)"><router-link to="/userCenter/returnMoney?accountType=12">回款查询</router-link></li>
+              <li @click="setNavType($event,13)"><router-link to="/userCenter/iwantTransfer?accountType=13">我要转让</router-link></li>
               <li><router-link to="">购买的债权</router-link></li>
-              <li @click="setNavType($event,13)"><router-link to="/userCenter/autoBid?accountType=13">自动投标</router-link></li>
+              <li @click="setNavType($event,15)"><router-link to="/userCenter/autoBid?accountType=15">自动投标</router-link></li>
             </ul>
           </li>
           <li class="first-li" :class="{on: navType >= 21 && navType <= 30}" @mouseover="showChildNavList" @mouseout="hideChildNavList">

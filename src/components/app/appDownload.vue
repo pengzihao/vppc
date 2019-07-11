@@ -172,9 +172,9 @@
       //离开当前页面之前恢复html，body的css属性
       $("html").removeAttr('style');
       $("body").removeAttr('style');
-
       $('#fp-nav').remove();
       //显示底部
+      $(".header").show();
       this.$emit('public_footer', true);
       next();
     }

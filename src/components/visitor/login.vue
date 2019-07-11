@@ -38,6 +38,19 @@
     name: '',
     methods:{
       loginSuc:function () {
+        var _this = this;
+        var params = {
+          url:'/admin/check',
+          type:'post',
+          data: {
+            userName: "admin333",
+            password: "qq123456..",
+          }
+        }
+
+        _this.$http(params,function(response) {
+          console.log(response)
+        })
         window.localStorage.setItem("loginType",'1');
         this.$router.back(-1);
       }
